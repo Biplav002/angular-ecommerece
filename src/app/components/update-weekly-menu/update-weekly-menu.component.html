@@ -1,0 +1,115 @@
+<div class="container">
+    <form [formGroup]="weeklyMenuUpdateFormGroup" (ngSubmit)="onSubmit()">
+
+        <div formGroupName="mondayMenu">
+           
+           <tr> <h3>Monday &nbsp;</h3> 
+            
+
+            <input formControlName="id" type="hidden" value="1">
+            <td>
+            name:   
+                <input [formControlName]="'name'" type="text">
+            </td>
+           
+            <td>desc:<input formControlName="description" type="text"></td>
+            <td>price <input formControlName="price" type="number"></td>
+        </tr> 
+        </div>
+        <div formGroupName="tuedayMenu">
+            <tr> <h3>Tuesday &nbsp;</h3> 
+            
+
+                <input formControlName="id" type="hidden" value="1">
+                <td>
+                name:   
+                    <input [formControlName]="'name'" type="text">
+                </td>
+               
+                <td>desc:<input formControlName="description" type="text"></td>
+                <td>price <input formControlName="price" type="number"></td>
+            </tr> 
+           
+        </div>
+        <div formGroupName="weddayMenu">
+            <tr> <h3>Wednesday &nbsp;</h3> 
+            
+
+                <input formControlName="id" type="hidden" value="1">
+                <td>
+                name:   
+                    <input [formControlName]="'name'" type="text">
+                </td>
+               
+                <td>desc:<input formControlName="description" type="text"></td>
+                <td>price <input formControlName="price" type="number"></td>
+            </tr> 
+            
+        </div>
+        <div formGroupName="thrusdayMenu">
+            <tr> <h3>Thrusday &nbsp;</h3> 
+            
+
+                <input formControlName="id" type="hidden" value="1">
+                <td>
+                name:   
+                    <input [formControlName]="'name'" type="text">
+                </td>
+               
+                <td>desc:<input formControlName="description" type="text"></td>
+                <td>price <input formControlName="price" type="number"></td>
+            </tr> 
+            
+        </div>
+        <div formGroupName="fridayMenu">
+            <tr> <h3>Friday &nbsp;</h3> 
+            
+
+                <input formControlName="id" type="hidden" value="1">
+                <td>
+                name:   
+                    <input [formControlName]="'name'" type="text">
+                </td>
+               
+                <td>desc:<input formControlName="description" type="text"></td>
+                <td>price <input formControlName="price" type="number"></td>
+            </tr> 
+            
+        </div>
+        <div formGroupName="satdayMenu">
+            <tr> <h3>Monday &nbsp;</h3> 
+            
+
+                <input formControlName="id" type="hidden" value="1">
+                <td>
+                name:   
+                    <input [formControlName]="'name'" type="text">
+                </td>
+               
+                <td>desc:<input formControlName="description" type="text"></td>
+                <td>price <input formControlName="price" type="number"></td>
+            </tr> 
+            
+        </div>
+        <div formGroupName="sundayMenu">
+            <tr> <h3>Sunday &nbsp;</h3> 
+            
+
+                <input formControlName="id" type="hidden" value="1">
+                <td>
+                name:   
+                    <input [formControlName]="'name'" type="text">
+                </td>
+               
+                <td>desc:<input formControlName="description" type="text"></td>
+                <td>price <input formControlName="price" type="number"></td>
+            </tr> 
+            
+        </div>
+        <tr>
+            <button type="submit" class="btn btn-info">update</button>
+        </tr>
+    </form>
+</div>
+
+

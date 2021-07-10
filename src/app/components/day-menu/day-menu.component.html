@@ -1,0 +1,52 @@
+
+
+<table  >
+
+    <head>
+    headerr
+</head>
+<body  > 
+    
+    <div *ngFor="let recipe of dayMenu">
+    <tr>
+    <th></th>
+    <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+            <th></th>
+        
+    </tr>
+    <tr>
+      <td>
+        <strong style="color :black;" >{{recipe.name}}</strong>
+       
+    </td>
+    &nbsp;&nbsp;
+    <td>  
+        
+        <img  class="one" src="{{recipe.imageUrl}}" class="img-responsive" > </td>
+    &nbsp;&nbsp;
+    <td><i style="color :white;">Price:Rs {{recipe.price}}</i> <td>
+        <td>
+            <div class="quantity">
+                <button class="plus-btn" type="button" name="button">
+                  <!-- <img src="assets/images/products/plus.png" alt="" /> -->
+                </button>
+                <input type="text" name="name" value="1">
+                <button class="minus-btn" type="button" name="button">
+                  <!-- <img src="assets/images/products/minus.png" alt="" /> -->
+                </button>
+              </div>
+
+        </td>
+    <td></td>
+    <td>
+
+        <!-- <app-update-weekly-menu></app-update-weekly-menu> -->
+    </td>
+    </tr>
+</div>
+</body> 
+ 
+</table>
