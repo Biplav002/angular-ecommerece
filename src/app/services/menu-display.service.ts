@@ -3,12 +3,14 @@ import {  Menus } from '../common/menus';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuDisplayService {
-  private baseUrl = 'http://localhost:8080/api/menus';
+  baseUrl1=environment.baseUrl;
+  private baseUrl = this.baseUrl1+'api/menus';
 
 
   constructor(private httpClient: HttpClient) { }
