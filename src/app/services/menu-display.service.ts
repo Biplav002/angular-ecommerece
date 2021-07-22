@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class MenuDisplayService {
   baseUrl1=environment.baseUrl;
-  private baseUrl = this.baseUrl1+'api/menus';
+  private baseUrl = this.baseUrl1+'api/menu';
 
 
   constructor(private httpClient: HttpClient) { }
