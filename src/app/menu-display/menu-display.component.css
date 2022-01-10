@@ -1,0 +1,12 @@
+.tablebody {
+  background-color: #092905eb;
+}
+
+.dayMenu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  font-size: 60px;
+  column-gap: 130px;
+  row-gap: 60px;
+}

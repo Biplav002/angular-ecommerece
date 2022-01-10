@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Day } from 'src/app/common/day';
 import { Menus } from 'src/app/common/menus';
+import { AuthService } from 'src/app/services/auth-service.service';
 import { UpdateMenuService } from 'src/app/services/update-menu.service';
 
 @Component({
@@ -10,9 +11,12 @@ import { UpdateMenuService } from 'src/app/services/update-menu.service';
   styleUrls: ['./update-weekly-menu.component.css']
 })
 export class UpdateWeeklyMenuComponent implements OnInit {
-
+  selectedFile: File;
+  reader = new FileReader();
+  uploadImageData = new FormData();
   weeklyMenuUpdateFormGroup:FormGroup;
-  constructor(private formBuilder:FormBuilder,private updateMenuService:UpdateMenuService) { 
+ 
+  constructor(private formBuilder:FormBuilder,private updateMenuService:UpdateMenuService,private authService: AuthService) { 
 
 
   }
@@ -24,7 +28,8 @@ export class UpdateWeeklyMenuComponent implements OnInit {
     day:['Monday'], 
     name:[''],
      description:[''],
-     price:['']
+     price:[''],
+     image:[this.uploadImageData]
    }),
    tuedayMenu:this.formBuilder.group({
     id:['2'],
@@ -72,8 +77,10 @@ export class UpdateWeeklyMenuComponent implements OnInit {
   }
   onSubmit(){
     //let updatedmenu= new Day();
+    console.log(this.selectedFile);
+    
     Day.Monday = this.weeklyMenuUpdateFormGroup.controls['mondayMenu'].value;
-    Day.Tuesday = this.weeklyMenuUpdateFormGroup.controls['tuedayMenu'].value;
+      Day.Tuesday = this.weeklyMenuUpdateFormGroup.controls['tuedayMenu'].value;
     Day.Wednesday = this.weeklyMenuUpdateFormGroup.controls['weddayMenu'].value;
    Day.Thrusday = this.weeklyMenuUpdateFormGroup.controls['thrusdayMenu'].value;
     Day.Friday = this.weeklyMenuUpdateFormGroup.controls['fridayMenu'].value;
@@ -95,4 +102,26 @@ export class UpdateWeeklyMenuComponent implements OnInit {
     }
   );
   }
+  onUpload() {
+    console.log(this.selectedFile);
+    let Filename;
+    //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
+    const uploadImageData = new FormData();
+    if(this.selectedFile.name.includes('.')){
+    let index = this.selectedFile.name.indexOf( "." ); 
+     Filename=this.selectedFile.name.substring(0,index);
+    }
+    uploadImageData.append('imageFile', this.selectedFile, Filename);
+    this.updateMenuService.uploadImage(uploadImageData)
+  }
+  public onFileChanged(event) {
+    //Select File
+    this.selectedFile = event.target.files[0];
+    this.onUpload();
+  }
+  handleLogout() {
+  
+    
+    this.authService.logout();
+}
 }

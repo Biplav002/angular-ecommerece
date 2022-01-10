@@ -1,3 +1,22 @@
-<div  *ngFor="let recipe of m">
-<a  routerLink="/dayMenu" (click)="daySelected($event)">{{recipe.day}}</a></div>
-
+<table>
+  <div class="tablebody">
+    <div class="dayMenu">
+      <div *ngFor="let recipe of days.weekdays">
+        <a routerLink="/dayMenu" (click)="daySelected($event)">{{ recipe }}</a>
+        <img
+          src="{{ days.myMap.get(recipe) }}"
+          alt="Chuck Taylor All Star Shoe"
+          height="250"
+          width="250"
+          class="product-img"
+        />
+        <br />
+      </div>
+    </div>
+    <div>
+      <tr>
+        <a class="nav-link" href="" (click)="handleLogout()">Logout</a>
+      </tr>
+    </div>
+  </div>
+</table>

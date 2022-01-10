@@ -9,6 +9,7 @@ export class Day {
     static  Friday  = new Menus();
     static  Saturday  = new Menus();
     static  Sunday  = new Menus();
+ 
    
 
 }
