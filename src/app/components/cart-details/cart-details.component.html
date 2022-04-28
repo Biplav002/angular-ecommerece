@@ -1,0 +1,39 @@
+<div class="cartdetails">
+  <table>
+    <tr *ngFor="let tempCartItem of cartItems">
+      <div class="mealtag">
+        <td>
+          <img
+            src="{{ tempCartItem.imageUrl }}"
+            class="img-responsive"
+            width="150px"
+          /><br />
+          <p>{{ tempCartItem.desc }}</p>
+          <br />
+          <p>Unit price: {{ tempCartItem.unitPrice | currency: "Rs" }}</p>
+        </td>
+      </div>
+      <div class="items">
+        <td>
+          <label>Quantity:</label> {{ tempCartItem.quantity }}
+
+          <p class="mt-2">
+            Subtotal:
+            {{
+              tempCartItem.quantity * tempCartItem.unitPrice | currency: "Rs"
+            }}
+          </p>
+        </td>
+      </div>
+      <td style="font-weight: bold">
+        <p>Total Quantity: {{ tempCartItem.quantity }}</p>
+        <p>Shipping: FREE</p>
+        <p>
+          Total Price:
+          {{ tempCartItem.quantity * tempCartItem.unitPrice | currency: "Rs" }}
+        </p>
+        <a routerLink="/checkout" class="btn btn-primary">Checkout</a>
+      </td>
+    </tr>
+  </table>
+</div>

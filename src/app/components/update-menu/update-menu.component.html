@@ -1,0 +1,24 @@
+<div class="container">
+  <form
+    [formGroup]="weeklyMenuUpdateFormGroup"
+    (ngSubmit)="onSubmit()"
+    *ngIf="weeklyMenuUpdateFormGroup"
+  >
+    <tr>
+      <h3>&nbsp;&nbsp;&nbsp;</h3>
+
+      <input formControlName="id" type="hidden" value="1" />
+      <td>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:
+        <input formControlName="name" type="text" />
+      </td>
+
+      <td>desc:<input formControlName="description" type="text" /></td>
+      <td>price <input formControlName="price" type="number" /></td>
+     
+    </tr>
+    <tr>
+      <button type="submit" class="btn btn-info">update</button>
+    </tr>
+  </form>
+</div>

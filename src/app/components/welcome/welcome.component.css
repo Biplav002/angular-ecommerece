@@ -1,0 +1,108 @@
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  background-color: orange;
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 150px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: orange;
+  color: white;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+  color: white;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: white;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: rgb(78, 27, 27);
+  color: #555;
+}
+
+.welcome {
+  max-width: 130rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin: 0 auto;
+  gap: 9.6rem;
+}
+
+.wel-img {
+  width: 100%;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  font-weight: 700;
+  line-height: 1.05;
+  color: #333;
+  letter-spacing: -0.5px;
+  margin-bottom: 3.2rem;
+}
+
+.welcome-description {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 4, 8rem;
+  padding: 0 3.2rem;
+}
+
+.section-welcome {
+  background-color: #ffecef;
+  padding: 4.8rem 0 9.6rem 0;
+}
+
+.margin-right-sm {
+  margin-right: 1.6rem;
+}
+
+.delivered-meals {
+  display: flex;
+
+  gap: 9.6rem;
+  margin-top: 18rem;
+  margin-bottom: 3.2rem;
+}
+
+.delivered-images {
+  display: flex;
+}
+
+.delivered-images img {
+  width: 4.8rem;
+  height: 4.8rem;
+  margin-right: -1.6rem;
+  border: 3px solid #fdf2e9;
+  border-radius: 50%;
+}
+
+.delivered-text {
+  display: flex;
+  font-size: 1.8rem;
+  font-weight: 600;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.delivered-text span {
+  color: #cf711f;
+  font-weight: 700;
+}

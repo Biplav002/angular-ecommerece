@@ -1,0 +1,14 @@
+.cartdetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1frr;
+
+  font-size: 30px;
+  column-gap: 130px;
+  row-gap: 60px;
+}
+.mealtag {
+  box-shadow: 0px 2.4rem 4.8rem rgba(0, 0, 0, 0.2);
+}
+.items {
+  box-shadow: 0px 2.4rem 4.8rem rgba(0, 0, 0, 0.2);
+}

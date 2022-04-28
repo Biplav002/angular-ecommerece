@@ -1,7 +1,7 @@
-<table>
-  <div class="tablebody">
-    <div class="dayMenu">
-      <div *ngFor="let recipe of days.weekdays">
+<table tablebody>
+  <div class="dayMenu">
+    <div *ngFor="let recipe of days.weekdays">
+      <tr>
         <a routerLink="/dayMenu" (click)="daySelected($event)">{{ recipe }}</a>
         <img
           src="{{ days.myMap.get(recipe) }}"
@@ -11,12 +11,21 @@
           class="product-img"
         />
         <br />
-      </div>
-    </div>
-    <div>
-      <tr>
-        <a class="nav-link" href="" (click)="handleLogout()">Logout</a>
       </tr>
     </div>
+  </div>
+  <div>
+    <tr>
+      <a class="nav-link" href="" (click)="handleLogout()">Logout</a>
+    </tr>
+  </div>
+  <div class="cart-area d-n">
+    <a href="shopping-detail.html">
+      <div class="total">
+        55
+        <span>2</span>
+      </div>
+      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    </a>
   </div>
 </table>

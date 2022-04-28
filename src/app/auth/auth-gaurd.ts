@@ -1,25 +1,36 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+  UrlTree,
+} from "@angular/router";
 import { Observable } from "rxjs";
 import { map, take } from "rxjs/operators";
 import { AuthService } from "../services/auth-service.service";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class AuthGuard implements CanActivate {
-    constructor(private authService: AuthService, private router: Router) {}
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-        //throw new Error("Method not implemented.");
-        return this.authService.user.pipe(
-            
-            map(user => {
-             return !!user;
-            })
-            // tap(isAuth => {
-            //   if (!isAuth) {
-            //     this.router.navigate(['/auth']);
-            //   }
-            // })
-          );
-    }
-
+  constructor(private authService: AuthService, private router: Router) {}
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ):
+    | boolean
+    | UrlTree
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree> {
+    //throw new Error("Method not implemented.");
+    return this.authService.loggedinUser.pipe(
+      map((user) => {
+        return !!user;
+      })
+      // tap(isAuth => {
+      //   if (!isAuth) {
+      //     this.router.navigate(['/auth']);
+      //   }
+      // })
+    );
+  }
 }

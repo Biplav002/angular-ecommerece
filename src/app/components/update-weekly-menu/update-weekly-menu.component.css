@@ -1,4 +1,4 @@
-table {
+/* table {
   border-collapse: separate;
   border-spacing: 0;
   color: #4a4a4d;
@@ -45,4 +45,26 @@ tfoot {
 }
 tfoot tr:last-child {
   background: #f0f0f2;
+} */
+
+.update-menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  list-style-type: none;
+}
+.btn-update {
+  background-color: #395870;
+  color: #fff;
+  border: none;
+  padding: 1.6rem 2.4rem;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  height: 5.2rem;
+  width: 25.2rem;
 }
