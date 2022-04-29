@@ -5,7 +5,7 @@ import { MenuDisplayService } from "../services/menu-display.service";
 import { Menus } from "../common/menus";
 import { PassServiceService } from "../services/pass-service.service";
 import { AuthService } from "../services/auth-service.service";
-import { dispMenu } from "../common/dispMenu";
+import { DispMenu } from "../common/dispMenu";
 
 @Component({
   selector: "app-menu-display",
@@ -14,7 +14,7 @@ import { dispMenu } from "../common/dispMenu";
 })
 export class MenuDisplayComponent implements OnInit {
   m: Menus[];
-  days: dispMenu;
+  days: DispMenu;
   dayMenu: Menus;
   id: number;
   retrieveResonse: any;
@@ -25,12 +25,11 @@ export class MenuDisplayComponent implements OnInit {
     private menuDisplayService: MenuDisplayService,
     private idPassService: PassServiceService,
     private authService: AuthService
-  ) //private dispMenu: dispMenu
-  {}
+  ) {}
 
   ngOnInit(): void {
     // this.listMenu();
-    this.days = new dispMenu();
+    this.days = new DispMenu();
   }
   listMenu() {
     this.menuDisplayService.getMenuList().subscribe((data) => {

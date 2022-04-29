@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
-import { Menus } from "src/app/common/menus";
-import { PassServiceService } from "src/app/services/pass-service.service";
-import { MenuDisplayService } from "src/app/services/menu-display.service";
-import { DomSanitizer } from "@angular/platform-browser";
-import { CartService } from "src/app/services/cart-service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Menus } from 'src/app/common/menus';
+import { PassServiceService } from 'src/app/services/pass-service.service';
+import { MenuDisplayService } from 'src/app/services/menu-display.service';
+import { DomSanitizer } from '@angular/platform-browser';
+import { CartService } from 'src/app/services/cart-service';
 
 @Component({
-  selector: "app-day-menu",
-  templateUrl: "./day-menu.component.html",
-  styleUrls: ["./day-menu.component.css"],
+  selector: 'app-day-menu',
+  templateUrl: './day-menu.component.html',
+  styleUrls: ['./day-menu.component.css'],
 })
 export class DayMenuComponent implements OnInit {
   id: number;
@@ -40,7 +40,7 @@ export class DayMenuComponent implements OnInit {
       this.image = data.img;
       this.id = data.id;
       this.dayMenu = new Menus(
-        "",
+        '',
         this.name,
         this.description,
         this.price,

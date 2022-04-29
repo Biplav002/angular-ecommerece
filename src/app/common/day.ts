@@ -1,4 +1,4 @@
-import { Menus } from "./menus";
+import { Menus } from './menus';
 
 export class Day {
   // static  Monday  = new Menus();

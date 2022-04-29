@@ -18,11 +18,6 @@ import { ImageAppComponent } from "./components/image-app/image-app.component";
 
 import { LoginStatusComponent } from "./components/login-status/login-status.component";
 
-import {
-  OKTA_CONFIG,
-  OktaAuthModule,
-  OktaCallbackComponent,
-} from "@okta/okta-angular";
 import myAppConfig from "./config/my-app-config";
 
 import { LoginComponent } from "./components/login/login.component";
@@ -39,18 +34,6 @@ import { UpdateMenuComponent } from "./components/update-menu/update-menu.compon
 import { OrderComponent } from "./components/order/order.component";
 import { SummaryComponent } from "./components/summary/summary.component";
 import { PaymentsuccessfulComponent } from "./components/paymentsuccessful/paymentsuccessful.component";
-
-const oktaConfig = Object.assign(
-  {
-    onAuthRequired: (injector) => {
-      const router = injector.get(Router);
-
-      // Redirect the user to your custom login page
-      router.navigate(["/login"]);
-    },
-  },
-  myAppConfig.oidc
-);
 
 const appRoutes: Routes = [
   // { path: "", component: HeaderComponent },
@@ -105,7 +88,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    OktaAuthModule,
+
     RouterModule.forRoot(appRoutes),
   ],
   providers: [

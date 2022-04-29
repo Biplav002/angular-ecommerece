@@ -1,13 +1,13 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
-import { Menus } from "src/app/common/menus";
-import { UpdateMenuService } from "src/app/services/update-menu.service";
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Menus } from 'src/app/common/menus';
+import { UpdateMenuService } from 'src/app/services/update-menu.service';
 
 @Component({
-  selector: "app-update-menu",
-  templateUrl: "./update-menu.component.html",
-  styleUrls: ["./update-menu.component.css"],
+  selector: 'app-update-menu',
+  templateUrl: './update-menu.component.html',
+  styleUrls: ['./update-menu.component.css'],
 })
 export class UpdateMenuComponent implements OnInit {
   day: string;
@@ -26,7 +26,7 @@ export class UpdateMenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.day = this.route.snapshot.paramMap.get("day");
+    this.day = this.route.snapshot.paramMap.get('day');
     if (this.menu != null) {
       this.weeklyMenuUpdateFormGroup = new FormGroup({
         id: new FormControl(null),
@@ -35,7 +35,7 @@ export class UpdateMenuComponent implements OnInit {
         name: new FormControl(this.menu.name),
         image: new FormControl(null),
       });
-      console.log(this.menu + "menu");
+      console.log(this.menu + 'menu');
     } else {
       this.weeklyMenuUpdateFormGroup = new FormGroup({
         id: new FormControl(null),
@@ -44,7 +44,7 @@ export class UpdateMenuComponent implements OnInit {
         name: new FormControl(null),
         image: new FormControl(null),
       });
-      console.log(this.menu + "menu");
+      console.log(this.menu + 'menu');
     }
   }
 
@@ -53,42 +53,42 @@ export class UpdateMenuComponent implements OnInit {
   }
 
   onSubmit() {
-    let id: number = this.getId(this.day);
-    let description: string =
-      this.weeklyMenuUpdateFormGroup.controls["description"].value;
-    let price: number = this.weeklyMenuUpdateFormGroup.controls["price"].value;
-    let name: string = this.weeklyMenuUpdateFormGroup.controls["name"].value;
-    let image: File = this.selectedFile;
-    let dayMenu: Menus = new Menus(this.day, name, description, price, id, "");
+    const id: number = this.getId(this.day);
+    const description: string =
+      this.weeklyMenuUpdateFormGroup.controls.description.value;
+    const price: number = this.weeklyMenuUpdateFormGroup.controls.price.value;
+    const name: string = this.weeklyMenuUpdateFormGroup.controls.name.value;
+    const image: File = this.selectedFile;
+    const dayMenu: Menus = new Menus(this.day, name, description, price, id, '');
     this.updateMenuService.updateDayMenu(dayMenu);
   }
   getId(day: string): number {
     switch (day) {
-      case "Monday": {
+      case 'Monday': {
         return 1;
         break;
       }
-      case "Tuesday": {
+      case 'Tuesday': {
         return 2;
         break;
       }
-      case "Wednesday": {
+      case 'Wednesday': {
         return 3;
         break;
       }
-      case "Thrusday": {
+      case 'Thrusday': {
         return 4;
         break;
       }
-      case "Friday": {
+      case 'Friday': {
         return 5;
         break;
       }
-      case "Saturday": {
+      case 'Saturday': {
         return 6;
         break;
       }
-      case "Sunday": {
+      case 'Sunday': {
         return 7;
         break;
       }

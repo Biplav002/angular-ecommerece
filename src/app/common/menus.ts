@@ -1,4 +1,4 @@
-import { FormGroupName } from "@angular/forms";
+import { FormGroupName } from '@angular/forms';
 
 export class Menus {
   day: string;

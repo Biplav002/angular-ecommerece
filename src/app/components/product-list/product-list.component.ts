@@ -10,7 +10,7 @@ import { Product } from 'src/app/common/product';
 export class ProductListComponent implements OnInit {
 
   products: Product[];
-  
+
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
@@ -23,7 +23,7 @@ export class ProductListComponent implements OnInit {
         this.products = data;
         console.log(this.products);
       }
-    )
+    );
   }
 
 }

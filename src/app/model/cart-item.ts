@@ -1,5 +1,5 @@
-import { DomSanitizer } from "@angular/platform-browser";
-import { Menus } from "../common/menus";
+import { DomSanitizer } from '@angular/platform-browser';
+import { Menus } from '../common/menus';
 
 export class CartItem {
   day: string;
@@ -28,19 +28,19 @@ export class CartItem {
   }
   getDayId(day: string): number {
     switch (day) {
-      case "Monday":
+      case 'Monday':
         return 1;
-      case "Tuesday":
+      case 'Tuesday':
         return 2;
-      case "Wednesday":
+      case 'Wednesday':
         return 3;
-      case "Thrusday":
+      case 'Thrusday':
         return 4;
-      case "Friday":
+      case 'Friday':
         return 5;
-      case "Saturday":
+      case 'Saturday':
         return 6;
-      case "Sunday":
+      case 'Sunday':
         return 7;
 
       default:

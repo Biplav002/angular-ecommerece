@@ -1,4 +1,4 @@
-import { CartItem } from "../model/cart-item";
+import { CartItem } from '../model/cart-item';
 
 export class OrderItem {
   imageUrl: string;

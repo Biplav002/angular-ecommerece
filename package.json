@@ -20,8 +20,6 @@
     "@angular/platform-browser": "~9.0.6",
     "@angular/platform-browser-dynamic": "~9.0.6",
     "@angular/router": "~9.0.6",
-    "@okta/okta-angular": "^3.2.2",
-    "@okta/okta-signin-widget": "^5.16.1",
     "bootstrap": "^3.4.1",
     "razorpay": "^2.8.1",
     "rxjs": "~6.5.4",

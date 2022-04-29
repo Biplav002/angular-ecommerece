@@ -10,9 +10,9 @@ import { CartService } from 'src/app/services/cart-service';
 export class CartDetailsComponent implements OnInit {
 
   cartItems: CartItem[] = [];
-  totalPrice: number = 0;
-  totalQuantity: number = 0;
-  
+  totalPrice = 0;
+  totalQuantity = 0;
+
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -30,12 +30,12 @@ export class CartDetailsComponent implements OnInit {
     );
 
     // subscribe to the cart totalQuantity
-    this.cartService.totalQuantity.subscribe( 
+    this.cartService.totalQuantity.subscribe(
       data => this.totalQuantity = data
     );
-  
+
     // compute cart total price and quantity
-    //this.cartService.updateCart();
+    // this.cartService.updateCart();
   }
 
 }

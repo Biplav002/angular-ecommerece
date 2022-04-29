@@ -32,8 +32,8 @@ export class UpdateMenuService {
     console.log(JSON.stringify(menu));
     this.authService.loggedinUser.subscribe((data) => (this.user = data));
 
-    let token = this.user.token;
-    let header = new HttpHeaders().set("Authorization", token);
+    const token = this.user.token;
+    const header = new HttpHeaders().set("Authorization", token);
     this.httpClient
       .put<Menus>(this.updateUrl, menu, { headers: header })
       .subscribe((data) => {
@@ -42,7 +42,7 @@ export class UpdateMenuService {
   }
 
   uploadImage(uploadImageData: FormData) {
-    //Make a call to the Spring Boot Application to save the image
+    // Make a call to the Spring Boot Application to save the image
     this.httpClient
       .post("http://localhost:8080/image/upload", uploadImageData, {
         observe: "response",
@@ -68,9 +68,9 @@ export class UpdateMenuService {
   }
 
   getMenubyId(url: string, headers: HttpHeaders, day: string) {
-    let token: string;
+    // const token: string;
 
-    //this.authService.user.subscribe((user) => (token = user.token));
+    // this.authService.user.subscribe((user) => (token = user.token));
     //  const headers = new HttpHeaders()
     //     .set("Content-Type", "application/json")
     //     .set("Authorization", sessionStorage.getItem("token"));

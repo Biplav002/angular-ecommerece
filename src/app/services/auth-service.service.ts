@@ -1,46 +1,48 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, throwError } from "rxjs";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 
 import {
   HttpClient,
   HttpErrorResponse,
   HttpHeaders,
-} from "@angular/common/http";
-import { catchError, map } from "rxjs/operators";
-import { Router } from "@angular/router";
-import { User } from "../common/User";
+} from '@angular/common/http';
+import { catchError, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { User } from '../common/User';
 
-const headers = new HttpHeaders().set("Content-Type", "application/json");
+const headers = new HttpHeaders().set('Content-Type', 'application/json');
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = "http://localhost:8080/auth/";
-  public loggedinUser = new BehaviorSubject<User>(null);
   constructor(private http: HttpClient, private router: Router) {}
+  private baseUrl = 'http://localhost:8080/auth/';
+  public loggedinUser = new BehaviorSubject<User>(null);
+
+  get;
   signup(user: User): Observable<any> {
-    //console.log('In AuthService');
+    // console.log('In AuthService');
     return this.http
-      .post(this.baseUrl + "signup", user, { headers, responseType: "text" })
+      .post(this.baseUrl + 'signup', user, { headers, responseType: 'text' })
       .pipe(catchError(this.handleError));
   }
   login(user: string, password: string) {
     // console.log('In AuthService -  login');
     return this.http
       .post<any>(
-        this.baseUrl + "login",
-        { userName: user, password: password },
+        this.baseUrl + 'login',
+        { userName: user, password },
         { headers }
       )
       .pipe(
         catchError(this.handleError),
         map((userData) => {
-          sessionStorage.setItem("username", user);
-          let tokenStr = "Bearer " + userData.token;
-          console.log("Token---  " + tokenStr);
-          sessionStorage.setItem("token", tokenStr);
-          sessionStorage.setItem("roles", JSON.stringify(userData.roles));
-          let loggedinUser: User = new User(
+          sessionStorage.setItem('username', user);
+          const tokenStr = 'Bearer ' + userData.token;
+          console.log('Token---  ' + tokenStr);
+          sessionStorage.setItem('token', tokenStr);
+          sessionStorage.setItem('roles', JSON.stringify(userData.roles));
+          const loggedinUser: User = new User(
             userData.userName,
             userData.email,
             userData.password,
@@ -61,19 +63,19 @@ export class AuthService {
 
   logout() {
     sessionStorage.clear();
-    this.router.navigate([""]);
+    this.router.navigate(['']);
   }
 
   isLoggedIn(): boolean {
-    return sessionStorage.getItem("username") !== null;
+    return sessionStorage.getItem('username') !== null;
   }
 
   private handleError(httpError: HttpErrorResponse) {
-    let message: string = "";
+    let message = '';
 
     if (httpError.error instanceof ProgressEvent) {
-      console.log("in progrss event");
-      message = "Network error";
+      console.log('in progrss event');
+      message = 'Network error';
     } else {
       message = httpError.error.message;
       // The backend returned an unsuccessful response code.
@@ -97,9 +99,7 @@ export class AuthService {
     // const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(userId, email, password, role, token);
     this.loggedinUser.next(user);
-    //this.autoLogout(expiresIn * 1000);
-    localStorage.setItem("userData", JSON.stringify(user));
+    // this.autoLogout(expiresIn * 1000);
+    localStorage.setItem('userData', JSON.stringify(user));
   }
-
-  get;
 }

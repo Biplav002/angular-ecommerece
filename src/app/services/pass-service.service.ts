@@ -12,7 +12,7 @@ export class PassServiceService {
   private name = new BehaviorSubject('');
   currentId = this.id.asObservable();
   currentName = this.name.asObservable();
-  updateApprovalMessage(menuId: number,menuName:string) {
+  updateApprovalMessage(menuId: number, menuName: string) {
     this.id.next(menuId);
     this.name.next(menuName);
     }

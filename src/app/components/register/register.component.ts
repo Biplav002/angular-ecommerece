@@ -1,22 +1,22 @@
-import { Component, OnInit } from "@angular/core";
-import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
-import { User } from "src/app/common/User";
-import { AuthService } from "src/app/services/auth-service.service";
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/common/User';
+import { AuthService } from 'src/app/services/auth-service.service';
 
 @Component({
-  selector: "app-register",
-  templateUrl: "./register.component.html",
-  styleUrls: ["./register.component.css"],
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
   registrationForm: FormGroup;
-  user = new User("", "", "", "", "");
+  user = new User('', '', '', '', '');
   isRegistered = false;
   submitted = false;
-  errorMessage = "";
+  errorMessage = '';
   roles: any = [
-    { name: "User", id: 1, selected: true },
-    { name: "Admin", id: 2, selected: false },
+    { name: 'User', id: 1, selected: true },
+    { name: 'Admin', id: 2, selected: false },
   ];
   selectedRoles: string[];
   constructor(private authService: AuthService) {}
@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
     this.user.userName = this.registrationForm.value.userName;
     this.user.email = this.registrationForm.value.email;
     this.user.password = this.registrationForm.value.password;
-    //console.log(this.getSelectedRoles());
+    // console.log(this.getSelectedRoles());
     this.user.role = this.registrationForm.value.roleSelection;
     this.registerUser();
   }
