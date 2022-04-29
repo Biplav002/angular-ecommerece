@@ -1,7 +1,7 @@
-import { Address } from './address';
-import { Customer } from './customer';
-import { Order } from './order';
-import { OrderItem } from './OrderItem';
+import { Address } from "./Address";
+import { Customer } from "./Customer";
+import { Order } from "./Order";
+import { OrderItem } from "./OrderItem";
 
 export class Purchase {
   customer: Customer;
