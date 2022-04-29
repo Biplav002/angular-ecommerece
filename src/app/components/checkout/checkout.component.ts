@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Country } from 'src/app/common/Country';
-import { Order } from 'src/app/common/order';
-import { OrderItem } from 'src/app/common/OrderItem';
-import { Purchase } from 'src/app/common/purchase';
-import { State } from 'src/app/common/State';
-import { CartService } from 'src/app/services/cart-service';
-import { CheckoutService } from 'src/app/services/checkout.service';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { Router } from "@angular/router";
+import { Country } from "src/app/common/Country";
+import { Order } from "src/app/common/Order";
+import { OrderItem } from "src/app/common/OrderItem";
+import { Purchase } from "src/app/common/purchase";
+import { State } from "src/app/common/State";
+import { CartService } from "src/app/services/cart-service";
+import { CheckoutService } from "src/app/services/checkout.service";
 
 @Component({
-  selector: 'app-checkout',
-  templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.css'],
+  selector: "app-checkout",
+  templateUrl: "./checkout.component.html",
+  styleUrls: ["./checkout.component.css"],
 })
 export class CheckoutComponent implements OnInit {
   totalPrice = 0;
@@ -33,33 +33,33 @@ export class CheckoutComponent implements OnInit {
     );
     this.cartDetailForm = this.formBuilder.group({
       customer: this.formBuilder.group({
-        firstName: [''],
-        lastName: [''],
-        email: [''],
+        firstName: [""],
+        lastName: [""],
+        email: [""],
       }),
       shippingAddress: this.formBuilder.group({
-        street: [''],
-        city: [''],
-        state: [''],
-        country: [''],
-        zipCode: [''],
+        street: [""],
+        city: [""],
+        state: [""],
+        country: [""],
+        zipCode: [""],
       }),
 
       billingAddress: this.formBuilder.group({
-        street: [''],
-        city: [''],
-        state: [''],
-        country: [''],
-        zipCode: [''],
+        street: [""],
+        city: [""],
+        state: [""],
+        country: [""],
+        zipCode: [""],
       }),
 
       creditCard: this.formBuilder.group({
-        cardType: [''],
-        nameOnCard: [''],
-        cardNumber: [''],
-        securityCode: [''],
-        expirationMonth: [''],
-        expirationYear: [''],
+        cardType: [""],
+        nameOnCard: [""],
+        cardNumber: [""],
+        securityCode: [""],
+        expirationMonth: [""],
+        expirationYear: [""],
       }),
     });
   }
@@ -67,18 +67,18 @@ export class CheckoutComponent implements OnInit {
   copyShippingAddressToBillingAddress() {}
 
   onSubmit() {
-    console.log(this.cartDetailForm.get('customer').value);
+    console.log(this.cartDetailForm.get("customer").value);
     console.log(
-      'The email address is ' + this.cartDetailForm.get('customer').value.email
+      "The email address is " + this.cartDetailForm.get("customer").value.email
     );
 
     console.log(
-      'The shipping address country is ' +
-        this.cartDetailForm.get('shippingAddress').value.city
+      "The shipping address country is " +
+        this.cartDetailForm.get("shippingAddress").value.city
     );
     console.log(
-      'The shipping address state is ' +
-        this.cartDetailForm.get('shippingAddress').value.state
+      "The shipping address state is " +
+        this.cartDetailForm.get("shippingAddress").value.state
     );
 
     // set up order
@@ -95,7 +95,7 @@ export class CheckoutComponent implements OnInit {
 
     // set up purchase
     const purchase = new Purchase();
-    purchase.customer = this.cartDetailForm.get('customer').value;
+    purchase.customer = this.cartDetailForm.get("customer").value;
     console.log(purchase.customer);
     purchase.shippingAddress =
       this.cartDetailForm.controls.shippingAddress.value;
@@ -111,8 +111,7 @@ export class CheckoutComponent implements OnInit {
     purchase.shippingAddress.country = shippingCountry.name;
 
     // populate purchase - billing address
-    purchase.billingAddress =
-      this.cartDetailForm.controls.billingAddress.value;
+    purchase.billingAddress = this.cartDetailForm.controls.billingAddress.value;
 
     const billingState: State = JSON.parse(
       JSON.stringify(purchase.billingAddress.state)
@@ -133,7 +132,7 @@ export class CheckoutComponent implements OnInit {
           `Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`
         );
         this.router.navigate([
-          '/summary',
+          "/summary",
           {
             address: response.shippingAddress.street,
             firstname: response.customer.firstName,
@@ -161,6 +160,6 @@ export class CheckoutComponent implements OnInit {
     this.cartDetailForm.reset();
 
     // navigate back to the products page
-    this.router.navigateByUrl('/cart-details');
+    this.router.navigateByUrl("/cart-details");
   }
 }
