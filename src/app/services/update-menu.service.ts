@@ -44,7 +44,7 @@ export class UpdateMenuService {
   uploadImage(uploadImageData: FormData) {
     // Make a call to the Spring Boot Application to save the image
     this.httpClient
-      .post("http://localhost:8080/image/upload", uploadImageData, {
+      .post(environment.baseUrl + "image/upload", uploadImageData, {
         observe: "response",
       })
       .subscribe((response) => {
